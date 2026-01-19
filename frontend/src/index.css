@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AI Workflow Builder Design System - Clean, Modern, Professional */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core palette - Cool grays with blue accent */
+    --background: 210 20% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Primary - Calm professional blue */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft gray */
+    --secondary: 210 14% 93%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 14% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    /* Accent - Subtle blue tint */
+    --accent: 210 100% 97%;
+    --accent-foreground: 217 91% 50%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Node colors */
+    --node-user-query: 142 76% 36%;
+    --node-user-query-bg: 142 76% 95%;
+    --node-knowledge-base: 262 83% 58%;
+    --node-knowledge-base-bg: 262 83% 96%;
+    --node-llm-engine: 217 91% 60%;
+    --node-llm-engine-bg: 217 91% 96%;
+    --node-output: 25 95% 53%;
+    --node-output-bg: 25 95% 96%;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-border: 214 20% 92%;
+    --sidebar-accent: 210 100% 97%;
+    --sidebar-accent-foreground: 217 91% 50%;
+
+    /* Canvas */
+    --canvas-background: 210 20% 96%;
+    --canvas-grid: 210 20% 88%;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(222 47% 11% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(222 47% 11% / 0.07), 0 2px 4px -2px hsl(222 47% 11% / 0.05);
+    --shadow-lg: 0 10px 15px -3px hsl(222 47% 11% / 0.08), 0 4px 6px -4px hsl(222 47% 11% / 0.05);
+    --shadow-node: 0 4px 12px -2px hsl(222 47% 11% / 0.12);
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 20% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 217 20% 15%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 217 20% 12%;
+    --muted-foreground: 215 16% 60%;
+
+    --accent: 217 30% 15%;
+    --accent-foreground: 217 91% 70%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 217 20% 18%;
+    --input: 217 20% 18%;
+    --ring: 217 91% 60%;
+
+    --sidebar-background: 222 47% 7%;
+    --sidebar-foreground: 210 20% 98%;
+    --sidebar-border: 217 20% 15%;
+    --sidebar-accent: 217 30% 12%;
+    --sidebar-accent-foreground: 217 91% 70%;
+
+    --canvas-background: 222 47% 5%;
+    --canvas-grid: 217 20% 12%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* Node styles */
+  .workflow-node {
+    @apply bg-card rounded-xl shadow-node border border-border/50 min-w-[180px] transition-all duration-200;
+  }
+
+  .workflow-node:hover {
+    @apply shadow-lg;
+  }
+
+  .workflow-node.selected {
+    @apply ring-2 ring-primary ring-offset-2;
+  }
+
+  .node-header {
+    @apply flex items-center gap-2 px-3 py-2.5 rounded-t-xl border-b border-border/30;
+  }
+
+  .node-icon {
+    @apply w-8 h-8 rounded-lg flex items-center justify-center;
+  }
+
+  .node-title {
+    @apply font-medium text-sm;
+  }
+
+  .node-body {
+    @apply px-3 py-2 text-xs text-muted-foreground;
+  }
+
+  /* Sidebar item */
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-grab bg-card border border-border/50 transition-all duration-200 hover:shadow-md hover:border-primary/30;
+  }
+
+  .sidebar-item:active {
+    @apply cursor-grabbing scale-[0.98];
+  }
+
+  /* Panel styles */
+  .config-panel {
+    @apply bg-card p-4 rounded-xl border border-border/50 shadow-sm;
+  }
+
+  .config-label {
+    @apply text-sm font-medium text-foreground mb-1.5 block;
+  }
+
+  .config-input {
+    @apply w-full px-3 py-2 text-sm bg-muted/50 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all;
+  }
+
+  /* Custom scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+/* React Flow customization */
+.react-flow__background {
+  background-color: hsl(var(--canvas-background)) !important;
+}
+
+.react-flow__background pattern circle {
+  fill: hsl(var(--canvas-grid)) !important;
+}
+
+.react-flow__edge-path {
+  stroke: hsl(var(--muted-foreground)) !important;
+  stroke-width: 2 !important;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: hsl(var(--primary)) !important;
+  stroke-width: 3 !important;
+}
+
+.react-flow__handle {
+  width: 10px !important;
+  height: 10px !important;
+  background: hsl(var(--muted-foreground)) !important;
+  border: 2px solid hsl(var(--card)) !important;
+}
+
+.react-flow__handle:hover {
+  background: hsl(var(--primary)) !important;
+}
+
+.react-flow__controls {
+  @apply shadow-md rounded-lg overflow-hidden border border-border/50;
+}
+
+.react-flow__controls-button {
+  @apply bg-card border-border/30 text-foreground;
+}
+
+.react-flow__controls-button:hover {
+  @apply bg-muted;
+}
+
+.react-flow__minimap {
+  @apply rounded-lg overflow-hidden shadow-md border border-border/50;
+}

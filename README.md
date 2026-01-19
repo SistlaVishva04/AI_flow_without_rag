@@ -1,6 +1,6 @@
-# AI Workflow Builder with RAG 
+# AI Flow Studio – LLM Workflow Orchestrator
 ## 📌 Overview
-AI Workflow Builder is a visual workflow orchestration platform that allows users to design AI pipelines, upload knowledge documents, and interact with LLMs using Retrieval-Augmented Generation (RAG).
+AI Workflow Builder is a visual workflow orchestration platform that allows users to design AI pipelines, upload knowledge documents, and interact with LLMs. A no-RAG baseline system for building and executing LLM pipelines with document context.
 
 The system supports authenticated users, persistent workflows, chat history, and document-based question answering.
 

@@ -39,7 +39,7 @@ export function KnowledgeBaseConfigPanel({ config, onChange }: KnowledgeBaseConf
     const formData = new FormData();
     formData.append("file", file);
 
-    const res = await fetch("http://127.0.0.1:8000/workflow/upload", {
+    const res = await fetch("https://ai-flow-without-rag.onrender.com/workflow/upload", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`

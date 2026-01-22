@@ -54,7 +54,7 @@ export function ChatModal({
     const { data: { session } } = await supabase.auth.getSession();
     const token = session?.access_token;
 
-    const res = await fetch(`http://127.0.0.1:8000/chat/${workflowId}`, {
+    const res = await fetch(`https://ai-flow-without-rag.onrender.com/chat/${workflowId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -99,7 +99,7 @@ export function ChatModal({
     const token = session?.access_token;
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/workflow/execute", {
+      const res = await fetch("https://ai-flow-without-rag.onrender.com/workflow/execute", {
         method: "POST",
         headers: {
         "Content-Type": "application/json",
@@ -125,7 +125,7 @@ export function ChatModal({
 
       // 🔥 Save chat to backend
       if (workflowId) {
-        await fetch("http://127.0.0.1:8000/chat/save", {
+        await fetch("https://ai-flow-without-rag.onrender.com/chat/save", {
           method: "POST",
           headers: {
   "Content-Type": "application/json",

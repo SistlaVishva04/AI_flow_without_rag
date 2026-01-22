@@ -34,7 +34,7 @@ export function TopBar({
 
       if (!session) return;
 
-      const res = await fetch("http://127.0.0.1:8000/workflow/list", {
+      const res = await fetch("https://ai-flow-without-rag.onrender.com/workflow/list", {
         headers: {
           Authorization: `Bearer ${session.access_token}`
         }
@@ -50,7 +50,7 @@ export function TopBar({
   const loadWorkflow = async (id: string) => {
     const { data: { session } } = await supabase.auth.getSession();
 
-    const res = await fetch(`http://127.0.0.1:8000/workflow/${id}`, {
+    const res = await fetch(`https://ai-flow-without-rag.onrender.com/workflow/${id}`, {
       headers: {
         Authorization: `Bearer ${session?.access_token}`
       }
